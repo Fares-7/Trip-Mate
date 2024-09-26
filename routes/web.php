@@ -20,12 +20,9 @@ Route::controller(FrontController::class)->prefix('front')->name('front.')->grou
 
 });
 Route::get('/', function () {
-    return view('welcome');
+    return view('front/home');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
