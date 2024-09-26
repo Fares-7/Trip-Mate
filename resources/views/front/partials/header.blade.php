@@ -2,7 +2,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
             <h1><a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
-                    Traversal
+                    Travel
                 </a></h1>
             <!-- if logo is image enable this
       <a class="navbar-brand" href="#index.html">
@@ -35,11 +35,38 @@
 
                 </ul>
             </div>
+            @if (!Auth::check())
             <div class="d-lg-block d-none">
-                <a href="contact.html" class="btn btn-style btn-secondary">Get In Touch</a>
+                <a href="{{route('login')}}" class="btn btn-style btn-secondary">Login</a>
             </div>
+            @endif
+          
+
+            {{-- <p>{{Auth::user()->name}}</p> --}}
+
+            @if (Auth::check())
+            <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
+                <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                    aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                <ul class="dropdown-menu">
+                    <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
+                    <li class="d-lg-block d-none">
+                        <form action="{{ route('logout') }}" method="post" id="logout_form">
+                            @csrf
+                            <button  class="nav-link"
+                                style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
+                                type="submit">Logout</button>
+                            {{-- <a class="nav-link"
+                                href="javascript:$('form#logout_form').submit();">Logout</a> --}}
+
+                        </form>
+                    </li>
+            @endif
+        
+
+
             <!-- toggle switch for light and dark theme -->
-            <div class="mobile-position">
+            {{-- <div class="mobile-position">
                 <nav class="navigation">
                     <div class="theme-switch-wrapper">
                         <label class="theme-switch" for="checkbox">
@@ -51,7 +78,7 @@
                         </label>
                     </div>
                 </nav>
-            </div>
+            </div> --}}
             <!-- //toggle switch for light and dark theme -->
         </nav>
     </div>
