@@ -12,6 +12,7 @@ Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
+    Route::post('subscribe/store','store')->name('subscriber.store');
 });
 require __DIR__.'/auth.php';
 
