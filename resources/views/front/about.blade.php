@@ -14,7 +14,6 @@
           <h3 class="hny-title">Travel to make memories all around the world.</h3>
           <p class="py-3 mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum labore sed, veniam nisi sunt laboriosam ducimus, odio
             aspernatur fugiat minima blanditiis dignissimos.</p>
-            <a href="services.html" class="btn btn-style btn-primary">Read More</a>
         </div>
         <div class="row mt-5">
           <div class="col-md-9 mx-auto">
@@ -44,18 +43,7 @@
               <div class="box-content">
                 <h3 class="title"><a href="#url">Alexander</a></h3>
                 <span class="post">Description</span>
-                <ul class="social">
-                  <li>
-                    <a href="#" class="facebook">
-                      <span class="fa fa-facebook-f"></span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="twitter">
-                      <span class="fa fa-twitter"></span>
-                    </a>
-                  </li>
-                </ul>
+               
               </div>
             </div>
           </div>
