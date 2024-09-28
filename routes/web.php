@@ -10,6 +10,7 @@ Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::get('/','index')->name('home');
     Route::get('/about' ,'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
+    Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
 });
 require __DIR__.'/auth.php';
