@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class BackController extends Controller
 {
-    public function table(){
+    public function contact(){
         $data = Contact::paginate(3);
         return view('admindashboard.contactsTable',compact('data'));
     }

@@ -78,12 +78,12 @@
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                            <div data-i18n="Account Settings">Account Settings</div>
+                            <div data-i18n="Account Settings">Destinations</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="pages-account-settings-account.html" class="menu-link">
-                                    <div data-i18n="Account">Account</div>
+                                <a href="{{route('admin.destination.index')}}" class="menu-link">
+                                    <div data-i18n="Account">Show</div>
                                 </a>
                             </li>
                             <li class="menu-item">
@@ -146,7 +146,7 @@
                       </a>
                       <ul class="menu-sub">
                           <li class="menu-item">
-                              <a href="{{ route('back.contact.table') }}" class="menu-link">
+                              <a href="{{route('admin.contact.table')}}" class="menu-link">
                                   <div data-i18n="Account">Show</div>
                               </a>
                           </li>

@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
+///front
 Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::get('/','index')->name('home');
     Route::get('/about' ,'about')->name('about');
@@ -15,11 +18,25 @@ Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::get('/destination', 'destination')->name('destination');
     Route::post('subscribe/store','store')->name('subscriber.store');
 });
-
-Route::controller(BackController::class)->name('back.')->group(function(){
-    Route::get('/table','table')->name('contact.table');
-});
 require __DIR__.'/auth.php';
+
+
+///Admin
+Route::prefix('/admin')->name('admin.')->group(function(){
+    //index
+   Route::view('/' , 'admindashboard/index');
+   //destinations
+   Route::resource('destination', DestinationController::class);
+
+   //contact
+   Route::controller(BackController::class)->group(function(){
+    Route::get('/contact','contact')->name('contact.table');
+}); 
+
+}); 
+
+
+
 
 
 // Route::get('/dashboard', function () {
