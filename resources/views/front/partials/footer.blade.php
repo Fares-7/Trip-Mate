@@ -47,7 +47,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <form action="{{ url('subscribe/store') }}" class="subscribe" method="post">
+                            <form action="{{ route('front.subscriber.store') }}" class="subscribe" method="post">
                                 @csrf
                                 <input type="email" name="email" placeholder="Email Address" required="">
                                 <button type="submit">Go</button>

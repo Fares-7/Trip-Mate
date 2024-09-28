@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BackController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -13,6 +14,10 @@ Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
     Route::post('subscribe/store','store')->name('subscriber.store');
+});
+
+Route::controller(BackController::class)->name('back.')->group(function(){
+    Route::get('/table','table')->name('contact.table');
 });
 require __DIR__.'/auth.php';
 
