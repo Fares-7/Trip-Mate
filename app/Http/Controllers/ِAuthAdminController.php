@@ -9,16 +9,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class AuthenticatedSessionController extends Controller
+class AuthAdminController extends Controller
 {
     /**
      * Display the login view.
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('admindashboard.login');
     }
 
+
+    public function login(Request $request)
+{
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::guard('admin')->attempt($credentials)) {
+        return redirect()->intended('/admin/dashboard');
+    }
+
+    return back()->withErrors(['email' => 'Invalid credentials']);
+}
     /**
      * Handle an incoming authentication request.
      */
@@ -28,7 +39,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return to_route('front.home');
+        return to_route('dashboard');
     }
 
     /**
@@ -42,6 +53,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return to_route('login');
     }
 }

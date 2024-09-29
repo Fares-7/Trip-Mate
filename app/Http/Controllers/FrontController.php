@@ -40,6 +40,9 @@ class FrontController extends Controller
        
         Subscriber::create($data);
         return back()->with('status','Done💚');        
-
     }
+//     public function getSubscriberCount()
+// {
+//     return Subscriber::count();
+// }
 }

@@ -33,49 +33,58 @@
                         <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
                     </li>
 
-                </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('adminlogin') }}">Admin</a>
+                    </li>
+
+                {{-- </ul>
+                <div class="subscribers">
+                    <span class="subscriber-count">Subscribers: {{ $subscriberCount }}</span>
+                </div> --}}
+                
+
             </div>
             @if (!Auth::check())
-            <div class="d-lg-block d-none">
-                <a href="{{route('login')}}" class="btn btn-style btn-secondary">Login</a>
-            </div>
+                <div class="d-lg-block d-none">
+                    <a href="{{ route('login') }}" class="btn btn-style btn-secondary">Login</a>
+                </div>
             @endif
             <div class="mobile-position">
                 <nav class="navigation">
-                  <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                      <input type="checkbox" id="checkbox">
-                      <div class="mode-container">
-                        <i class="gg-sun"></i>
-                        <i class="gg-moon"></i>
-                      </div>
-                    </label>
-                  </div>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
                 </nav>
-              </div>
-          
+            </div>
+
 
             {{-- <p>{{Auth::user()->name}}</p> --}}
 
             @if (Auth::check())
-            <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
-                <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                    aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-                <ul class="dropdown-menu">
-                    <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
-                    <li class="d-lg-block d-none">
-                        <form action="{{ route('logout') }}" method="post" id="logout_form">
-                            @csrf
-                            <button  class="nav-link"
-                                style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
-                                type="submit">Logout</button>
-                            {{-- <a class="nav-link"
+                <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
+                    <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
+                    <ul class="dropdown-menu">
+                        <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
+                        <li class="d-lg-block d-none">
+                            <form action="{{ route('logout') }}" method="post" id="logout_form">
+                                @csrf
+                                <button class="nav-link"
+                                    style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
+                                    type="submit">Logout</button>
+                                {{-- <a class="nav-link"
                                 href="javascript:$('form#logout_form').submit();">Logout</a> --}}
 
-                        </form>
-                    </li>
+                            </form>
+                        </li>
             @endif
-        
+
 
 
             <!-- toggle switch for light and dark theme -->

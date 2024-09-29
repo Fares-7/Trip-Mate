@@ -19,12 +19,13 @@ Route::controller(FrontController::class)->name('front.')->group(function(){
     Route::post('subscribe/store','store')->name('subscriber.store');
 });
 require __DIR__.'/auth.php';
+require __DIR__.'/adminAuth.php';
 
 
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function(){
     //index
-   Route::view('/' , 'admindashboard/index');
+//    Route::view('/' , 'admindashboard/index')->name('dashboard');
    //destinations
    Route::resource('destination', DestinationController::class);
 
@@ -48,4 +49,6 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+
+
 
