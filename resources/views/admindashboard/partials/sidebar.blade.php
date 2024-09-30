@@ -85,17 +85,10 @@
                                 <a href="{{route('admin.destination.index')}}" class="menu-link">
                                     <div data-i18n="Account">Show</div>
                                 </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="pages-account-settings-notifications.html" class="menu-link">
-                                    <div data-i18n="Notifications">Notifications</div>
+                                <a href="{{route('admin.destination.create')}}" class="menu-link">
+                                    <div data-i18n="Account">Create</div> 
                                 </a>
-                            </li>
-                            <li class="menu-item">
-                                <a a href="pages-account-settings-connections.html" class="menu-link">
-                                    <div data-i18n="Connections">Connections</div>
-                                </a>
-                            </li>
+                           
                         </ul>
                     </li>
                     <li class="menu-item">

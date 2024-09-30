@@ -22,15 +22,22 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admindashboard.destination.create' , get_defined_vars());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in stoage.
      */
     public function store(StoreDestinationRequest $request)
     {
-        //
+        $data = $request->validated();
+        // dd($data);
+        $image = $request->image;
+        $newImageName = time() . '-' . $image->getClientOriginalName();
+        $image->storeAs('destination', $newImageName, 'public');
+        $data['image'] = $newImageName;
+        Destination::create($data);
+        return to_route('admin.destination.index')->with('success', 'your destination created successfuly');
     }
 
     /**
