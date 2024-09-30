@@ -11,18 +11,55 @@
                                     alt="">
                             </div>
                             <div class="col-sm-7 subject-content mt-sm-0 mt-4">
-                                <h4>{{ $destination->name }}</h4>
-                                <p>{{ $destination->date }}</p>
-                                <div class="dst-btm">
-                                    <h6 class=""> Price </h6>
-                                    <span>{{ $destination->price }} $</span>
-                                </div>
+                                <!-- Label and Name -->
+                                <label for="destination-name" class="form-label">Name</label>
+                                <h4 id="destination-name">{{ $destination->name }}</h4>
+                            
+                                <!-- Label and Date -->
+                                <label for="destination-date" class="form-label">Date</label>
+                                <h4 id="destination-date">{{ $destination->date }}</h4>
 
+                                <label for="destination-price" class="form-label">Price</label>
+                                <h4 id="destination-price">{{ $destination->price }} $</h4>
+                               
+                                  @if (Auth::check())
+                                  <a onclick="return confirm('Are you want to book this trip ?')" href="{{route('front.reservation.store' , ['id' => $destination->id ])}}" class="btn btn-danger btn-lg mt-3" type="submit">
+                                    Book Trip
+                                </a>
+                                  @endif
+
+                                  @if (!Auth::check())
+                                      <div class="alert alert-warning   mt-2">
+                                        You must be logged in to book your trip
+                                      </div>
+                                  @endif
+                                    
+
+                                    @if (session('success'))
+                                    <div class="alert alert-success mt-2">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('status'))
+                                <div class="alert alert-success mt-2">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                                
                             </div>
+                            
+                            
                         </div>
+
+                        
                     </div>
                 </div>
+
+                
             </div>
+
+            
         </div>
     </section>
 @endsection

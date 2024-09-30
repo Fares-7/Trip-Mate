@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\View;
-use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Subscriber;
-use Illuminate\Http\Request;
 use App\Models\Destination;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use App\Http\Requests\ContactRequest;
 
 class FrontController extends Controller
 {
@@ -62,4 +63,17 @@ class FrontController extends Controller
 // {
 //     return Subscriber::count();
 // }
+
+    public function reservation($id){
+        $user = Auth::user();
+        if ($user->destinations()->where('destination_id', $id)->exists()) {
+            return back()->with('status', 'You have already booked this trip.');
+        }
+        $user->destinations()->attach($id);
+        return back()->with('success','Your trip has been booked successfully 💚');  
+
+    }
+
+
+
 }
