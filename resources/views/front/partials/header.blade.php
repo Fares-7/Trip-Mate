@@ -32,23 +32,41 @@
                     <li class="nav-item @yield('contact-active')">
                         <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
-                    </li>
-
-                {{-- </ul>
-                <div class="subscribers">
-                    <span class="subscriber-count">Subscribers: {{ $subscriberCount }}</span>
-                </div> --}}
-                
-
+                    @if (!Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
+                        </li>
+                    @endif
+                </ul>
             </div>
+
             @if (!Auth::check())
                 <div class="d-lg-block d-none">
                     <a href="{{ route('login') }}" class="btn btn-style btn-secondary">Login</a>
                 </div>
             @endif
+            @if (Auth::check())
+                <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
+                    <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
+                        <li class="d-lg-block d-none">
+                            <form action="{{ route('logout') }}" method="post" id="logout_form">
+                                @csrf
+                                <button class="nav-link"
+                                    style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
+                                    type="submit">Logout</button>
+                                {{-- <a class="nav-link"
+                            href="javascript:$('form#logout_form').submit();">Logout</a> --}}
+
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            @endif
+
             <div class="mobile-position">
                 <nav class="navigation">
                     <div class="theme-switch-wrapper">
@@ -62,28 +80,12 @@
                     </div>
                 </nav>
             </div>
-
+            <div>
+                <p>Subscribers: {{ $subscriberCount }}</p>
+            </div>
 
             {{-- <p>{{Auth::user()->name}}</p> --}}
 
-            @if (Auth::check())
-                <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
-                    <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
-                        role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
-                    <ul class="dropdown-menu">
-                        <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
-                        <li class="d-lg-block d-none">
-                            <form action="{{ route('logout') }}" method="post" id="logout_form">
-                                @csrf
-                                <button class="nav-link"
-                                    style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
-                                    type="submit">Logout</button>
-                                {{-- <a class="nav-link"
-                                href="javascript:$('form#logout_form').submit();">Logout</a> --}}
-
-                            </form>
-                        </li>
-            @endif
 
 
 
@@ -103,5 +105,6 @@
             </div> --}}
             <!-- //toggle switch for light and dark theme -->
         </nav>
+
     </div>
 </header>
