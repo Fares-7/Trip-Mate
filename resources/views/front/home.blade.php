@@ -25,44 +25,50 @@
     <!--/grids-->
     <section class="w3l-grids-3 py-5">
         <div class="container py-md-5">
-            <div class="title-content text-left mb-lg-5 mb-4">
-                <h6 class="sub-title">Visit</h6>
-                <h3 class="hny-title">Popular Destinations</h3>
+
+            <div class="container">
+                <div class="title-content text-left mb-lg-5 mb-4">
+                    <h6 class="sub-title">Visit</h6>
+                    <h3 class="hny-title">Popular Destinations</h3>
+                </div>
             </div>
-            <div class="row bottom-ab-grids">
-                <!--/row-grids-->
-                <div class="col-lg-6 subject-card mt-lg-0 mt-4">
-                    @if (isset($destinations) && count($destinations) > 0)
-                        @foreach ($destinations as $destination)
-                            <div class="subject-card-header p-4">
-                                <a href="{{ route('front.single.destination') }}" class="card_title p-lg-4d-block">
-                                    <div class="row align-items-center">
-                                        <div class="col-sm-5 subject-img">
-                                            <img src="" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="col-sm-7 subject-content mt-sm-0 mt-4">
-                                            <h4>{{ $destination->name }}</h4>
-                                            <p>{{ $destination->date }}</p>
-                                            <div class="dst-btm">
-                                                <h6 class=""> Start From </h6>
-                                                <span>{{ $destination->price }}$</span>
-                                            </div>
-                                            <p class="sub-para">Per person on twin sharing</p>
-                                        </div>
+
+
+
+            @if (count($destinations) > 0)
+
+                @foreach ($destinations as $destination)
+                    <div class="col-lg-6 subject-card mt-lg-0 mt-4">
+                        <div class="subject-card-header p-4">
+                            <a href="{{ route('front.single.destination' , ['id'=>$destination->id]) }}" class="card_title p-lg-4d-block">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-5 subject-img">
+                                        <img src="{{ asset("storage/destination/$destination->image") }}" class="img-fluid"
+                                            alt="">
                                     </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No destinations available at the moment.</p>
-                    @endif
-                </div>
-            </div>
-            <div class="row bottom-ab-grids">
-                <div class="col-lg-12">
+                                    <div class="col-sm-7 subject-content mt-sm-0 mt-4">
+                                        <h4>{{ $destination->name }}</h4>
+                                        <p>{{ $destination->date }}</p>
+                                        <div class="dst-btm">
+                                            <h6 class=""> Price </h6>
+                                            <span>{{ $destination->price }} $</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p>No destinations available at the moment.</p>
+            @endif
+
+            {{-- <div class="row bottom-ab-grids"> --}}
+            {{-- <div class="col-lg-12">
                     {{ $destinations->render('pagination::bootstrap-5') }}
-                </div>
-            </div>
+                </div> --}}
+            {{-- </div> --}}
     </section>
     <!--//grids-->
 

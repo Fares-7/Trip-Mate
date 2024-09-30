@@ -16,7 +16,7 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
-    Route::get('single', 'singledestination')->name('single.destination');
+    Route::get('single/{id}', 'singledestination')->name('single.destination');
     // Route::get('/single-destination/{id}', 'singleDestination')->name('single.destination');
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
@@ -28,7 +28,7 @@ require __DIR__ . '/auth.php';
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::middleware('admin')->group(function () {
         //index
-        // Route::view('/', 'admindashboard/index')->name('dashboard');
+        Route::view('/', 'admindashboard/index')->name('dashboard');
 
         //destinations
         Route::resource('destination', DestinationController::class);

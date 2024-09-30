@@ -34,7 +34,7 @@ class DestinationController extends Controller
         // dd($data);
         $image = $request->image;
         $newImageName = time() . '-' . $image->getClientOriginalName();
-        $image->storeAs('destinations', $newImageName, 'public');
+        $image->storeAs('destination', $newImageName, 'public');
         $data['image'] = $newImageName;
         Destination::create($data);
         return to_route('admin.destination.index')->with('success', 'your destination created successfuly');

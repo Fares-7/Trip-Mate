@@ -11,7 +11,7 @@ use App\Models\Destination;
 class FrontController extends Controller
 {
     public function index(){
-        $destinations = Destination::paginate(3);
+        $destinations = Destination::latest()->take(6)->get();
         // $subscriberCount = Subscriber::count();
         return view('front.home',compact('destinations'));
         
@@ -33,14 +33,15 @@ class FrontController extends Controller
 
 
     public function destination(){
-        $alldestinations = Destination::get();
+        $alldestinations = Destination::paginate(4);
         $subscriberCount = Subscriber::count();
         return view('front.destination',compact('subscriberCount'),compact('alldestinations'));
     }
-    public function singledestination(){
-        $alldestinations = Destination::get();
-        $subscriberCount = Subscriber::count();
-        return view('front.singledestination',compact('subscriberCount'),compact('alldestinations'));
+    public function singledestination($id ){
+      
+        $destination = Destination::find($id);
+        // $subscriberCount = Subscriber::count();
+        return view('front.singledestination', get_defined_vars());
     }
 
     public function contactStore(ContactRequest $request){
