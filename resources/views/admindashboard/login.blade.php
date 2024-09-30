@@ -115,7 +115,7 @@
                             <!-- /Logo -->
 
 
-                            <form id="formAuthentication" class="mb-3" action="{{ route('adminlogin') }}"
+                            <form id="formAuthentication" class="mb-3" action="{{ route('admin.login') }}"
                                 method="POST">
                                 @csrf
                                 <div class="mb-3">

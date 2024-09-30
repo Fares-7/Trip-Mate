@@ -34,7 +34,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('adminlogin') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
                     </li>
 
                 {{-- </ul>

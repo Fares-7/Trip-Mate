@@ -10,29 +10,32 @@ use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
 ///front
-Route::controller(FrontController::class)->name('front.')->group(function(){
-    Route::get('/','index')->name('home');
-    Route::get('/about' ,'about')->name('about');
+Route::controller(FrontController::class)->name('front.')->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
-    Route::post('subscribe/store','store')->name('subscriber.store');
+    Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
-require __DIR__.'/auth.php';
-require __DIR__.'/adminAuth.php';
+require __DIR__ . '/auth.php';
 
 
 ///Admin
-Route::prefix('/admin')->name('admin.')->group(function(){
-    //index
-//    Route::view('/' , 'admindashboard/index')->name('dashboard');
-   //destinations
-   Route::resource('destination', DestinationController::class);
+Route::prefix('/admin')->name('admin.')->group(function () {
+    Route::middleware('admin')->group(function () {
+        //index
+        Route::view('/', 'admindashboard/index')->name('dashboard');
+        //destinations
+        Route::resource('destination', DestinationController::class);
 
-   //contact
-   Route::controller(BackController::class)->group(function(){
-    Route::get('/contact','contact')->name('contact.table');
-}); 
+        //contact
+        Route::controller(BackController::class)->group(function () {
+            Route::get('/contact', 'contact')->name('contact.table');
+        });
+
+    });
+    require __DIR__ . '/adminAuth.php';
 
 }); 
 
@@ -49,6 +52,3 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
-
-
-
