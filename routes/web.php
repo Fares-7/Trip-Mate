@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Destination;
@@ -33,6 +34,8 @@ Route::prefix('/admin')->name('admin.')->group(function () {
 
         //destinations
         Route::resource('destination', DestinationController::class);
+        Route::resource('guide', GuideController::class);
+
 
         //contact
         Route::controller(BackController::class)->group(function () {

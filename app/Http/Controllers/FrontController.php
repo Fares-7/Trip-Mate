@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\ContactRequest;
+use App\Models\Guide;
 
 class FrontController extends Controller
 {
@@ -24,7 +25,8 @@ class FrontController extends Controller
 // }
 
     public function about(){
-        return view('front.about');
+        $guides = Guide::get();
+        return view('front.about',compact('guides'));
     }
 
     public function contact(){
@@ -55,7 +57,6 @@ class FrontController extends Controller
         $data = $request->validate([
                 'email'=>'required|email|unique:Subscribers,email'
             ]);
-       
         Subscriber::create($data);
         return back()->with('status','Done💚');        
     }

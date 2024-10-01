@@ -38,106 +38,32 @@
                     <h3 class="hny-title">Meet our Guides</h3>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
-                        <div class="box16">
-                            <a href="#url"><img src="{{ asset('front-assets') }}/images/team1.jpg" alt=""
-                                    class="img-fluid" /></a>
-                            <div class="box-content">
-                                <h3 class="title"><a href="#url">Alexander</a></h3>
-                                <span class="post">Description</span>
-
+                    @if (count($guides) > 0)
+                        @foreach ($guides as $guide)
+                            <div class="col-lg-3 col-6 mt-lg-5 mt-4">
+                                <div class="box16">
+                                    <a href="#url"><img src="{{ asset("storage/destination/$guide->image") }}"
+                                            alt="" class="img-fluid" /></a>
+                                    <div class="box-content">
+                                        <h3 class="title"><a href="#url">{{ $guide->name }}</a></h3>
+                                        <span class="post">{{ $guide->description }}</span>
+                                        <ul class="social">
+                                            <li>
+                                                <a href="{{ $guide->email }}" class="email">
+                                                    <span class="fa fa-envelope"></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ $guide->linkedin }}" class="linkedin">
+                                                    <span class="fa fa-linkedin"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
-                        <div class="box16">
-                            <a href="#url"><img src="{{ asset('front-assets') }}/images/team2.jpg" alt=""
-                                    class="img-fluid" /></a>
-                            <div class="box-content">
-                                <h3 class="title"><a href="#url">Victoria</a></h3>
-                                <span class="post">Description</span>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" class="facebook">
-                                            <span class="fa fa-facebook-f"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="twitter">
-                                            <span class="fa fa-twitter"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
-                        <div class="box16">
-                            <a href="#url"><img src="{{ asset('front-assets') }}/images/team3.jpg" alt=""
-                                    class="img-fluid" /></a>
-                            <div class="box-content">
-                                <h3 class="title"><a href="#url">Smith roy</a></h3>
-                                <span class="post">Description</a></span>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" class="facebook">
-                                            <span class="fa fa-facebook-f"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="twitter">
-                                            <span class="fa fa-twitter"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
-                        <div class="box16">
-                            <a href="#url"><img src="{{ asset('front-assets') }}/images/team3.jpg" alt=""
-                                    class="img-fluid" /></a>
-                            <div class="box-content">
-                                <h3 class="title"><a href="#url">Smith roy</a></h3>
-                                <span class="post">Description</a></span>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" class="facebook">
-                                            <span class="fa fa-facebook-f"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="twitter">
-                                            <span class="fa fa-twitter"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6 mt-lg-5 mt-4">
-                        <div class="box16">
-                            <a href="#url"><img src="{{ asset('front-assets') }}/images/team4.jpg" alt=""
-                                    class="img-fluid" /></a>
-                            <div class="box-content">
-                                <h3 class="title"><a href="#url">Johnson</a></h3>
-                                <span class="post">Description</a></span>
-                                <ul class="social">
-                                    <li>
-                                        <a href="#" class="facebook">
-                                            <span class="fa fa-facebook-f"></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="twitter">
-                                            <span class="fa fa-twitter"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
