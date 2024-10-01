@@ -30,17 +30,30 @@
                         <td>{{ $destination->name }}</td>
                         <td>{{ $destination->date }}</td>
                         <td>{{ $destination->price }}</td>
-                        <td> <img width="40px" src="{{asset("storage/destination/$destination->image")}}"></td>
+                        <td> <img width="40px" src="{{ asset("storage/destination/$destination->image") }}"></td>
                         <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.destination.edit', ['destination' => $destination]) }}"><i
+                                            class="bx bx-edit-alt me-1"></i>
                                         Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                        Delete</a>
+                                    @if (session('Deleted'))
+                                        <div class="alert alert-success">
+                                            {{ session('Deleted') }}
+                                        </div>
+                                    @endif
+                                    <form action="{{ route('admin.destination.destroy', ['destination' => $destination]) }}"
+                                        method="POST" id="delete_form">
+                                        @method(DELETE)
+                                        @csrf
+                                        <a class="dropdown-item" href="javascript:$('form#delete_form').submit();"><i
+                                                class="bx bx-trash me-1"></i>
+                                            Delete</a>
+                                    </form>
                                 </div>
                             </div>
                         </td>

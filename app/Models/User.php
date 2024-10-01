@@ -49,5 +49,8 @@ class User extends Authenticatable
     public function destinations()
     {
         return $this->belongsToMany(Destination::class);
+
     }
+
 }
+

@@ -47,16 +47,18 @@
             @endif
             @if (Auth::check())
                 <li style="background-color: #FF1654 ;     border-radius: 3px; " class="nav-item submenu dropdown">
-                    <a style="color: white ; href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                    <a style="color: white ;" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
                         role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="d-lg-block  "><a class="nav-link" href="">My reservation</a></li>
+                        <li class="d-lg-block  "><button class="nav-link"
+                                style="width:100%;border-style: hidden;text-align: left;background-color:white;color:#FF1654"
+                                type="submit">My Reservation</button></li>
                         <li class="d-lg-block d-none">
                             <form action="{{ route('logout') }}" method="post" id="logout_form">
                                 @csrf
                                 <button class="nav-link"
-                                    style="width:100%;border-style: hidden;text-align: left;background-color:#FF1654;color:white"
+                                    style="width:100%;border-style: hidden;text-align: left;background-color:white;color:#FF1654"
                                     type="submit">Logout</button>
                                 {{-- <a class="nav-link"
                             href="javascript:$('form#logout_form').submit();">Logout</a> --}}

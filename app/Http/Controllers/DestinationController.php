@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destination;
 use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
+use Illuminate\Container\Attributes\Storage;
 
 class DestinationController extends Controller
 {
@@ -53,15 +54,25 @@ class DestinationController extends Controller
      */
     public function edit(Destination $destination)
     {
-        //
+        return view('admindashboard.destination.edit' ,compact('destination'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. 
      */
     public function update(UpdateDestinationRequest $request, Destination $destination)
     {
-        //
+        $data = $request->validated();
+        if ($request->hasFile('image')){
+            //delete old image
+            Storage::delete("public/destination/$destination->image");
+            $image = $request->image;
+            $newImageName = time() . '-' . $image->getClientOriginalName();
+            $image->storeAs('destination', $newImageName, 'public');
+            $data['image'] = $newImageName;
+        }
+        $destination->update($data);
+        return to_route('admin.destination.show')->with('Updated', 'your destination Updated successfuly');
     }
 
     /**
@@ -69,6 +80,8 @@ class DestinationController extends Controller
      */
     public function destroy(Destination $destination)
     {
-        //
+        Storage::delete("public/destination/$destination->image");
+        $destination->delete();
+        return to_route('admin.destination.show')->with('Deleted', 'your destination Deleted successfuly');
     }
 }

@@ -34,22 +34,23 @@
                                             </div>
                                         </div>
                                         <div class="flex-grow-1">
-                                            <span class="fw-semibold d-block">{{Auth::guard('admin')->user()->name}}</span>
-                                           
+                                            <span
+                                                class="fw-semibold d-block">{{ Auth::guard('admin')->user()->name ?? 'Guest' }}</span>
+
                                         </div>
                                     </div>
                                 </a>
                             </li>
-                           
-                        
+
+
                             <li>
-                                <form action="{{route('admin.logout')}}" method="post">
+                                <form action="{{ route('admin.logout') }}" method="post">
                                     @csrf
                                     <input type="submit" value="Log Out" class="dropdown-item">
-                                     
+
                                     </input>
                                 </form>
-                               
+
                             </li>
                         </ul>
                     </li>
