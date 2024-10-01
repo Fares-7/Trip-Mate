@@ -20,6 +20,7 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
     Route::get('single/{id}', 'singledestination')->name('single.destination');
     // Route::get('/single-destination/{id}', 'singleDestination')->name('single.destination');
     Route::get('reservation/{id}' , 'reservation')->name('reservation.store');
+    Route::get('/myreservation', 'myreservation')->name('myreservation');
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
 require __DIR__ . '/auth.php';

@@ -76,5 +76,10 @@ class FrontController extends Controller
     }
 
 
+    public function myreservation(){
+
+        return view('front.myreservation');
+    }
+
 
 }

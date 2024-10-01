@@ -51,9 +51,13 @@
                         role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="d-lg-block  "><button class="nav-link"
-                                style="width:100%;border-style: hidden;text-align: left;background-color:white;color:#FF1654"
-                                type="submit">My Reservation</button></li>
+                        <li class="d-lg-block">
+                            <a href="{{ route('front.myreservation') }}" class="nav-link"
+                                style="width:100%; border-style: none; text-align: left; background-color: white; color: #FF1654; display: block; text-decoration: none; padding: 8px 16px;">
+                                My Reservation
+                            </a>
+                        </li>
+
                         <li class="d-lg-block d-none">
                             <form action="{{ route('logout') }}" method="post" id="logout_form">
                                 @csrf
