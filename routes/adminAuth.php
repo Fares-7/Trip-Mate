@@ -22,7 +22,7 @@ use App\Http\Controllers\adminAuth\AuthenticatedSessionController;
 //         ->name('admin.logout');
 // });
 
-Route::middleware('guest')->group(function () {
+Route::middleware('guest:admin')->group(function () {
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
 
@@ -30,7 +30,9 @@ Route::middleware('guest')->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+
+
+Route::middleware('admin')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');

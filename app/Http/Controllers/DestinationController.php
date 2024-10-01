@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Destination;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
-use Illuminate\Container\Attributes\Storage;
+
 
 class DestinationController extends Controller
 {
@@ -72,7 +73,7 @@ class DestinationController extends Controller
             $data['image'] = $newImageName;
         }
         $destination->update($data);
-        return to_route('admin.destination.show')->with('Updated', 'your destination Updated successfuly');
+        return to_route('admin.destination.index')->with('success', 'Your Destination Updated Successfuly');
     }
 
     /**
@@ -82,6 +83,6 @@ class DestinationController extends Controller
     {
         Storage::delete("public/destination/$destination->image");
         $destination->delete();
-        return to_route('admin.destination.show')->with('Deleted', 'your destination Deleted successfuly');
+        return back()->with('Deleted', 'Your Destination Deleted Successfuly');
     }
 }

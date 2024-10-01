@@ -24,17 +24,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $data = $request->validated();
-    if (Auth::guard('admin')->attempt(['email' => $data['email'], 'password' => $data['password']])) {
-        
+        $request->authenticate('admin');
+
+        $request->session()->regenerate();
+
         return to_route('admin.dashboard');
     }
 
 
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
-    ]);
-    }
+  
 
     /**
      * Destroy an authenticated session.

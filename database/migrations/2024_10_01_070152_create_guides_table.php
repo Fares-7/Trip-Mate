@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->require();
-            $table->string('name')->require();
-            $table->string('description');
-            $table->string('email')->require();
-            $table->string('linkedin')->require();
+            $table->string('image')->nullable();
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+            $table->string('email')->nullable();
+            $table->string('linkedin')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,12 @@ class Guide extends Model
      * The table associated with the model.
      *
      * @var string
+     * 
+     * 
      */
+
+     protected $table = 'guides';
+     
     protected $fillable = [
         'image',
         'name',

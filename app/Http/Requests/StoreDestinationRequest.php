@@ -25,7 +25,7 @@ class StoreDestinationRequest extends FormRequest
             'name' => 'required|string|max:255', // الاسم مطلوب ويجب أن يكون نصيًا، ويجب ألا يتجاوز 255 حرفًا
             'date' => 'date', // التاريخ اختياري ويجب أن يكون تاريخًا صحيحًا
             'price' => 'required|numeric|min:0', // السعر مطلوب ويجب أن يكون رقمًا ويجب ألا يكون سالبًا
-            'image' => 'nullable|mimes:jpg,jpeg,png', // الصورة اختيارية ويجب أن تكون صورة من الأنواع المحددة وبحجم لا يتجاوز 2 ميجابايت
+            'image' => 'required|mimes:jpg,jpeg,png', // الصورة اختيارية ويجب أن تكون صورة من الأنواع المحددة وبحجم لا يتجاوز 2 ميجابايت
         ];
     }
 }

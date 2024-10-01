@@ -29,19 +29,20 @@ require __DIR__ . '/auth.php';
 
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
-    Route::middleware('admin')->group(function () {
+    // Route::middleware('admin')->group(function () {
         //index
         Route::view('/', 'admindashboard/index')->name('dashboard');
 
         //destinations
         Route::resource('destination', DestinationController::class);
+        //guides
         Route::resource('guide', GuideController::class);
 
 
         //contact
         Route::controller(BackController::class)->group(function () {
             Route::get('/contact', 'contact')->name('contact.table');
-        });
+        // });
 
     });
     require __DIR__ . '/adminAuth.php';

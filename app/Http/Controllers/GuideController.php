@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\StoreGuideRequest;
 use App\Models\Guide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreGuideRequest;
 
 class GuideController extends Controller
 {
@@ -12,7 +13,9 @@ class GuideController extends Controller
      */
     public function index()
     {
-        //
+        $guides = Guide::paginate(10);
+        
+        return view('admindashboard.guide.show' , get_defined_vars());
     }
 
     /**
@@ -20,7 +23,7 @@ class GuideController extends Controller
      */
     public function create()
     {
-        return view('admindashboard.guide.add' , get_defined_vars());
+        return view('admindashboard.guide.create' , get_defined_vars());
     }
 
     /**
@@ -29,12 +32,15 @@ class GuideController extends Controller
     public function store(StoreGuideRequest $request)
     {
         $data = $request->validated();
-        $image = $request->image;
-        $newImageName = time() . '-' . $image->getClientOriginalName();
-        $image->storeAs('guide', $newImageName, 'public');
-        $data['image'] = $newImageName;
+        
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $newImageName = time() . '-' . $image->getClientOriginalName();
+            $image->storeAs('guide', $newImageName, 'public');
+            $data['image'] = $newImageName;
+        }
         Guide::create($data);
-        return back()->with('add-guide', 'your Guide Added successfuly');
+        return to_route('admin.guide.index')->with('success', 'Your Guide Added successfuly');
     }
 
     /**
@@ -48,17 +54,27 @@ class GuideController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Guide $guide)
     {
-        //
+        return view('admindashboard.guide.edit' ,compact('guide'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(StoreGuideRequest $request, Guide $guide)
     {
-        //
+        $data = $request->validated();
+        if ($request->hasFile('image')){
+            //delete old image
+            Storage::delete("public/destination/$guide->image");
+            $image = $request->image;
+            $newImageName = time() . '-' . $image->getClientOriginalName();
+            $image->storeAs('destination', $newImageName, 'public');
+            $data['image'] = $newImageName;
+        }
+        $guide->update($data);
+        return to_route('admin.guide.index')->with('success', 'Your Guide Updated Successfuly');
     }
 
     /**
@@ -68,6 +84,6 @@ class GuideController extends Controller
     {
         Storage::delete("public/destination/$guide->image");
         $guide->delete();
-        return back()->with('Deleted', 'your Guide Deleted successfuly');
+        return back()->with('success', 'Your Guide Deleted successfuly');
     }
 }

@@ -22,7 +22,7 @@ class StoreGuideRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Image is required, must be an image file, max 2MB
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Image is required, must be an image file, max 2MB
             'name' => 'required|string|max:255', // Name is required, must be a string, max 255 characters
             'description' => 'required|string|max:1000', // Description is required, must be a string, max 1000 characters
             'email' => 'required|email|unique:guides,email', // Email is required, must be a valid email, and unique in the guides table
