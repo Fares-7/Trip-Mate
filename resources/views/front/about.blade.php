@@ -42,13 +42,18 @@
                         @foreach ($guides as $guide)
                             <div class="col-lg-3 col-6 mt-lg-5 mt-4">
                                 <div class="box16">
-                                    <a href="#url"><img src="{{ asset("storage/guide/$guide->image") }}"
-                                            alt="" class="img-fluid" /></a>
+                                    <a href="#url"><img src="{{ asset("storage/guide/$guide->image") }}" alt=""
+                                            class="img-fluid" /></a>
                                     <div class="box-content">
                                         <h3 class="title"><a href="#url">{{ $guide->name }}</a></h3>
                                         <span class="post">{{ $guide->description }}</span>
                                         <ul class="social">
-                                         
+                                            <li>
+                                                <a href="mailto:{{ $guide->email }}" class="email">
+                                                    <span class="fa fa-envelope"></span>
+                                                </a>
+                                            </li>
+
                                             <li>
                                                 <a href="{{ $guide->linkedin }}" class="linkedin">
                                                     <span class="fa fa-linkedin"></span>

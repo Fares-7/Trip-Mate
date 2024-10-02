@@ -25,7 +25,7 @@ class StoreGuideRequest extends FormRequest
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Image is required, must be an image file, max 2MB
             'name' => 'required|string|max:255', // Name is required, must be a string, max 255 characters
             'description' => 'required|string|max:1000', // Description is required, must be a string, max 1000 characters
-            'email' => 'required|email|unique:guides,email', // Email is required, must be a valid email, and unique in the guides table
+            'email' => 'required|email', // Email is required, must be a valid email, and unique in the guides table
             'linkedin' => 'required|url|max:255', // LinkedIn is required, must be a valid URL, max 255 characters
         ];
     }
