@@ -32,9 +32,10 @@ require __DIR__ . '/auth.php';
 
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
+    Route::view('/', 'admindashboard/index')->name('dashboard');
+    Route::resource('about', AboutController::class);
     Route::middleware('admin')->group(function () {
         //index
-        Route::view('/', 'admindashboard/index')->name('dashboard');
 
         //destinations
         Route::resource('destination', DestinationController::class);

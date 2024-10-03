@@ -59,7 +59,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div> 
+                        </div>
                     @endforeach
                 @else
                     <p>No destinations available at the moment.</p>
@@ -87,11 +87,9 @@
                                 laudantium
                                 voluptate rem ullam dolore nisi voluptatibus esse quasi. Integer sit amet .Lorem ipsum dolor
                                 sit
-                                amet adipisicing elit.</p>
-                            <a href="about.html" class="btn btn-style btn-secondary mt-5">Read More</a>
+                                amet adipisicing elit.
+                            </p>
                         </div>
-
-
                     </div>
                 </div>
             </div>

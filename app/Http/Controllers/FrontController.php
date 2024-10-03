@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\ContactRequest;
+use App\Models\About;
 use App\Models\Guide;
 
 class FrontController extends Controller
@@ -26,7 +27,8 @@ class FrontController extends Controller
 
     public function about(){
         $guides = Guide::get();
-        return view('front.about',compact('guides'));
+        $abouts = About::get();
+        return view('front.about',compact('guides'),compact('abouts'));
     }
 
     public function contact(){

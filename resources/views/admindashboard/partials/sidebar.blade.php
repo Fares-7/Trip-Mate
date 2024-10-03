@@ -82,13 +82,13 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{route('admin.destination.index')}}" class="menu-link">
+                                <a href="{{ route('admin.destination.index') }}" class="menu-link">
                                     <div data-i18n="Account">Show</div>
                                 </a>
-                                <a href="{{route('admin.destination.create')}}" class="menu-link">
-                                    <div data-i18n="Account">Create</div> 
+                                <a href="{{ route('admin.destination.create') }}" class="menu-link">
+                                    <div data-i18n="Account">Create</div>
                                 </a>
-                           
+
                         </ul>
                     </li>
 
@@ -99,28 +99,44 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{route('admin.guide.index')}}" class="menu-link">
+                                <a href="{{ route('admin.guide.index') }}" class="menu-link">
                                     <div data-i18n="Account">Show</div>
                                 </a>
-                                <a href="{{route('admin.guide.create')}}" class="menu-link">
-                                    <div data-i18n="Account">Create</div> 
+                                <a href="{{ route('admin.guide.create') }}" class="menu-link">
+                                    <div data-i18n="Account">Create</div>
                                 </a>
-                           
+
                         </ul>
                     </li>
-                 
+
                     <li class="menu-item">
-                      <a href="javascript:void(0);" class="menu-link menu-toggle">
-                          <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                          <div data-i18n="Account Settings">Contacts</div>
-                      </a>
-                      <ul class="menu-sub">
-                          <li class="menu-item">
-                              <a href="{{route('admin.contact.table')}}" class="menu-link">
-                                  <div data-i18n="Account">Show</div>
-                              </a>
-                          </li>
-                      </ul>
-                  </li>
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Contacts</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin.contact.table') }}" class="menu-link">
+                                    <div data-i18n="Account">Show</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">About Sec</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin.about.index') }}" class="menu-link">
+                                    <div data-i18n="Account">Show</div>
+                                </a>
+                                <a href="{{ route('admin.about.create') }}" class="menu-link">
+                                    <div data-i18n="Account">Create</div>
+                                </a>
+
+                        </ul>
+                    </li>
             </aside>
             <!-- / Menu -->
