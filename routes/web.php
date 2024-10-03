@@ -8,6 +8,7 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UsersReservationsController;
 use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
@@ -32,10 +33,15 @@ require __DIR__ . '/auth.php';
 
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
-    Route::view('/', 'admindashboard/index')->name('dashboard');
-    Route::resource('about', AboutController::class);
-    Route::middleware('admin')->group(function () {
+    
+    // Route::group(function () {
         //index
+        Route::view('/', 'admindashboard/index')->name('dashboard');
+        Route::resource('about', AboutController::class);
+        //users reservations
+        Route::get('/userresrvations',[ UsersReservationsController::class,'userreservations'])
+        ->name('userresrvations.table');
+        
 
         //destinations
         Route::resource('destination', DestinationController::class);
@@ -48,7 +54,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
             Route::get('/contact', 'contact')->name('contact.table');
         });
 
-    });
+    // });
     require __DIR__ . '/adminAuth.php';
 
 }); 

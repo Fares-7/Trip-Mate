@@ -138,5 +138,18 @@
 
                         </ul>
                     </li>
+
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                            <div data-i18n="Account Settings">Users Reservations</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin.userresrvations.table') }}" class="menu-link">
+                                    <div data-i18n="Account">Show</div>
+                                </a>
+                        </ul>
+                    </li>
             </aside>
             <!-- / Menu -->
