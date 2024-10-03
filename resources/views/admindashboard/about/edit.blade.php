@@ -1,4 +1,6 @@
 @extends('admindashboard.master')
+@section('about-active', 'active')
+
 @section('content')
     <div class="card mb-4">
         <div class="card-header d-flex align-items-center justify-content-between">

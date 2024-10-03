@@ -24,7 +24,7 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
     Route::get('reservation/{id}' , 'reservation')->name('reservation.store');
     Route::resource('reservation' , ReservationController::class)->only('index' , 'destroy');
     Route::get('/myreservation', 'myreservation')->name('myreservation');
-    // Route::post('delete')
+   
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
 require __DIR__ . '/auth.php';
@@ -34,10 +34,10 @@ require __DIR__ . '/auth.php';
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
     
-    // Route::group(function () {
+    // Route::middleware('admin')->group(function () {
         //index
         Route::view('/', 'admindashboard/index')->name('dashboard');
-        Route::resource('about', AboutController::class);
+        Route::resource('about', AboutController::class)->only('index' , 'edit' ,'update');
         //users reservations
         Route::get('/userresrvations',[ UsersReservationsController::class,'userreservations'])
         ->name('userresrvations.table');

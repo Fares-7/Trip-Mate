@@ -1,4 +1,6 @@
 @extends('admindashboard.master')
+@section('contacts-active', 'active')
+
 @section('content')
     <table class="table">
         <caption>List of users</caption>

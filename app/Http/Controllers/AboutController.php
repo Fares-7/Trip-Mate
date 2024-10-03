@@ -18,39 +18,7 @@ class AboutController extends Controller
         return view('admindashboard.about.show' , get_defined_vars());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('admindashboard.about.create' , get_defined_vars());
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreAboutRequest $request)
-    {
-        $data = $request->validated();
-        
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $newImageName = time() . '-' . $image->getClientOriginalName();
-            $image->storeAs('about', $newImageName, 'public');
-            $data['image'] = $newImageName;
-        }
-        About::create($data);
-        return to_route('admin.about.index')->with('success', 'Your About Section Added successfuly');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
+  
     /**
      * Show the form for editing the specified resource.
      */
@@ -78,11 +46,5 @@ class AboutController extends Controller
         return to_route('admin.about.index')->with('success', 'Your About Section Updated Successfuly');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+  
 }

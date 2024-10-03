@@ -1,4 +1,6 @@
 @extends('admindashboard.master')
+@section('about-active', 'active')
+
 @section('content')
     <div class="hours">
         @if (session('success'))

@@ -4,7 +4,7 @@
 @section('content')
 
     @if (session('success'))
-        <div class="alert alert-success mt-3">
+        <div class="alert alert-success mt-">
             {{ session('success') }}
         </div>
     @endif

@@ -63,19 +63,16 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item active">
-                        <a href="index.html" class="menu-link">
+                    <li class="menu-item @yield('dashboard-active')">
+                        <a href="{{route('admin.dashboard')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
-
-
-
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item @yield('destinations-active') ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">Destinations</div>
@@ -92,7 +89,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item @yield('guides-active') ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">Guides</div>
@@ -109,7 +106,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item @yield('contacts-active') ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">Contacts</div>
@@ -122,7 +119,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item @yield('about-active') ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">About Sec</div>
@@ -132,14 +129,12 @@
                                 <a href="{{ route('admin.about.index') }}" class="menu-link">
                                     <div data-i18n="Account">Show</div>
                                 </a>
-                                <a href="{{ route('admin.about.create') }}" class="menu-link">
-                                    <div data-i18n="Account">Create</div>
-                                </a>
+                          
 
                         </ul>
                     </li>
 
-                    <li class="menu-item">
+                    <li class="menu-item @yield('usersReservations-active') ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-dock-top"></i>
                             <div data-i18n="Account Settings">Users Reservations</div>
