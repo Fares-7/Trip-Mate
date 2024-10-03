@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,11 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
     Route::post('/contact/store', 'contactStore')->name('contact.store');
     Route::get('/destination', 'destination')->name('destination');
     Route::get('single/{id}', 'singledestination')->name('single.destination');
-    // Route::get('/single-destination/{id}', 'singleDestination')->name('single.destination');
+ 
     Route::get('reservation/{id}' , 'reservation')->name('reservation.store');
+    Route::resource('reservation' , ReservationController::class)->only('index' , 'destroy');
     Route::get('/myreservation', 'myreservation')->name('myreservation');
+    // Route::post('delete')
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
 require __DIR__ . '/auth.php';
@@ -29,7 +32,7 @@ require __DIR__ . '/auth.php';
 
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
-    // Route::middleware('admin')->group(function () {
+    Route::middleware('admin')->group(function () {
         //index
         Route::view('/', 'admindashboard/index')->name('dashboard');
 
@@ -42,7 +45,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         //contact
         Route::controller(BackController::class)->group(function () {
             Route::get('/contact', 'contact')->name('contact.table');
-        // });
+        });
 
     });
     require __DIR__ . '/adminAuth.php';

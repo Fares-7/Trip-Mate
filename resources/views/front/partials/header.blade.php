@@ -32,11 +32,11 @@
                     <li class="nav-item @yield('contact-active')">
                         <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
                     </li>
-                    @if (!Auth::check())
+                    {{-- @if (!Auth::check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
                         </li>
-                    @endif
+                    @endif --}}
                 </ul>
             </div>
 
@@ -52,7 +52,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="d-lg-block">
-                            <a href="{{ route('front.myreservation') }}" class="nav-link"
+                            <a href="{{ route('front.reservation.index') }}" class="nav-link"
                                 style="width:100%; border-style: none; text-align: left; background-color: white; color: #FF1654; display: block; text-decoration: none; padding: 8px 16px;">
                                 My Reservation
                             </a>

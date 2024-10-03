@@ -15,7 +15,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $destinations = Destination::paginate(10);
+        $destinations = Destination::paginate(6);
         return view('admindashboard.destination.show' , get_defined_vars());
     }
 

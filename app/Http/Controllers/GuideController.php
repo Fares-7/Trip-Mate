@@ -67,7 +67,7 @@ class GuideController extends Controller
         $data = $request->validated();
         if ($request->hasFile('image')){
             //delete old image
-            Storage::delete("public/destination/$guide->image");
+            Storage::delete("public/giude/$guide->image");
             $image = $request->image;
             $newImageName = time() . '-' . $image->getClientOriginalName();
             $image->storeAs('destination', $newImageName, 'public');
@@ -82,7 +82,7 @@ class GuideController extends Controller
      */
     public function destroy(Guide $guide)
     {
-        Storage::delete("public/destination/$guide->image");
+        Storage::delete("public/guide/$guide->image");
         $guide->delete();
         return back()->with('success', 'Your Guide Deleted successfuly');
     }

@@ -13,7 +13,7 @@ use App\Models\Guide;
 class FrontController extends Controller
 {
     public function index(){
-        $destinations = Destination::latest()->take(6)->get();
+        $destinations = Destination::latest()->take(8)->get();
         // $subscriberCount = Subscriber::count();
         return view('front.home',compact('destinations'));
         
@@ -36,7 +36,7 @@ class FrontController extends Controller
 
 
     public function destination(){
-        $alldestinations = Destination::paginate(4);
+        $alldestinations = Destination::latest()->paginate(8);
         $subscriberCount = Subscriber::count();
         return view('front.destination',compact('subscriberCount'),compact('alldestinations'));
     }
@@ -76,10 +76,13 @@ class FrontController extends Controller
     }
 
 
-    public function myreservation(){
+    // public function myreservation(){
 
-        return view('front.myreservation');
-    }
+    //     $user  = Auth::user();
+    //     $destinations = $user->destinations;
+    //     // dd($destinations);
+    //     return view('front.myreservation' , get_defined_vars());
+    // }
 
 
 }

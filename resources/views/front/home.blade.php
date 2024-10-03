@@ -38,7 +38,7 @@
                 @if (count($destinations) > 0)
 
                     @foreach ($destinations as $destination)
-                        <div class="col-lg-6 subject-card mt-lg-0 mt-4">
+                        <div class="col-lg-6 subject-card mt-lg-4 mt-4">
                             <div class="subject-card-header p-4">
                                 <a href="{{ route('front.single.destination', ['id' => $destination->id]) }}"
                                     class="card_title p-lg-4d-block">
@@ -59,7 +59,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> 
                     @endforeach
                 @else
                     <p>No destinations available at the moment.</p>
