@@ -3,7 +3,7 @@
 
 @section('content')
     <table class="table">
-        <caption>List of users</caption>
+        <caption>List of Contacts</caption>
         <thead>
             <tr>
                 <th scope="col">#</th>

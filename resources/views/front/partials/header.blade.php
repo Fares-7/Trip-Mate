@@ -32,11 +32,11 @@
                     <li class="nav-item @yield('contact-active')">
                         <a class="nav-link" href="{{ route('front.contact') }}">Contact</a>
                     </li>
-                    {{-- @if (!Auth::check())
+                    @if (!Auth::check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.login') }}">Admin</a>
                         </li>
-                    @endif --}}
+                    @endif
                 </ul>
             </div>
 

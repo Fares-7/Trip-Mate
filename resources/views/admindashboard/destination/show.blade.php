@@ -17,7 +17,7 @@
 
     </div>
     <table class="table">
-        <caption>List of users</caption>
+        <caption>List of destinations</caption>
         <thead>
             <tr>
                 <th scope="col">#</th>

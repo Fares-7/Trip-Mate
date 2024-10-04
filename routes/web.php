@@ -5,11 +5,8 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GuideController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UsersReservationsController;
-use App\Models\Destination;
 use Illuminate\Support\Facades\Route;
 
 ///front
@@ -34,7 +31,7 @@ require __DIR__ . '/auth.php';
 ///Admin
 Route::prefix('/admin')->name('admin.')->group(function () {
     
-    // Route::middleware('admin')->group(function () {
+    Route::middleware('admin')->group(function () {
         //index
         Route::view('/', 'admindashboard/index')->name('dashboard');
         Route::resource('about', AboutController::class)->only('index' , 'edit' ,'update');
@@ -44,9 +41,9 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         
 
         //destinations
-        Route::resource('destination', DestinationController::class);
+        Route::resource('destination', DestinationController::class)->except('show');
         //guides
-        Route::resource('guide', GuideController::class);
+        Route::resource('guide', GuideController::class)->except('show');
 
 
         //contact
@@ -54,7 +51,7 @@ Route::prefix('/admin')->name('admin.')->group(function () {
             Route::get('/contact', 'contact')->name('contact.table');
         });
 
-    // });
+    });
     require __DIR__ . '/adminAuth.php';
 
 }); 

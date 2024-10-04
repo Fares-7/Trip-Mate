@@ -41,15 +41,7 @@ class DestinationController extends Controller
         Destination::create($data);
         return to_route('admin.destination.index')->with('success', 'your destination created successfuly');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Destination $destination)
-    {
-        
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
