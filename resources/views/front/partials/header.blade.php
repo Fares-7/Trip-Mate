@@ -1,13 +1,13 @@
 <header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke">
-            <h1><a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
+            {{-- <h1><a class="navbar-brand mr-lg-5" href="{{ url('/') }}">
                     Travel
-                </a></h1>
-            <!-- if logo is image enable this
-      <a class="navbar-brand" href="#index.html">
-          <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-      </a> -->
+                </a></h1> --}}
+            {{-- <!- if logo is image enable this --}}
+      <a class="navbar-brand mr-lg-5" href="#index.html">
+          <img src="{{asset('front-assets/images/Logo.png')}}" alt="Your logo" title="Your logo" style="height: 80px; width: 300px;" />
+      </a> 
             <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                 aria-label="Toggle navigation">
