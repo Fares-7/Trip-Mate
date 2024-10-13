@@ -77,4 +77,8 @@ class DestinationController extends Controller
         $destination->delete();
         return back()->with('Deleted', 'Your Destination Deleted Successfuly');
     }
+
+
+
+    
 }
