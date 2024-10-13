@@ -26,14 +26,14 @@
                         <td class="text-center">{{ $destination->name }}</td>
                         <td class="text-center">{{ $destination->date }}</td>
                         <td class="text-center">
-                            <form action="{{ route('front.reservation.destroy', $destination) }}" method="POST"
-                                id="delete_form">
+                            <form action="{{ route('front.reservation.destroy', $destination->id) }}" method="POST"
+                                onsubmit="return confirmDelete(this);">
                                 @method('DELETE')
                                 @csrf
-                                <a onclick="return confirm('Are you sure you want to delete this record?')"
-                                    class="btn btn-danger btn-sm" href="javascript:$('form#delete_form').submit();">
+                                <input type="hidden" name="delete_reason" id="deleteReason_{{ $destination->id }}">
+                                <button type="submit" class="btn btn-danger btn-sm">
                                     <i class="bx bx-trash me-1"></i> Delete
-                                </a>
+                                </button>
                             </form>
                         </td>
                     </tr>
@@ -47,3 +47,5 @@
     </table>
 
 @endsection
+
+

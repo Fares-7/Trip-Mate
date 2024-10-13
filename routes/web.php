@@ -20,7 +20,6 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
  
     Route::get('reservation/{id}' , 'reservation')->name('reservation.store');
     Route::resource('reservation' , ReservationController::class)->only('index' , 'destroy');
-    Route::get('/myreservation', 'myreservation')->name('myreservation');
    
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });

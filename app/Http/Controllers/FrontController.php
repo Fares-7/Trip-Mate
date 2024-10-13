@@ -24,11 +24,6 @@ class FrontController extends Controller
 }
 
 
-//     public function getSubscriberCount(){
-
-//     return Subscriber::count();
-// }
-
     public function about(){
         $guides = Guide::get();
         $abouts = About::get();
@@ -64,12 +59,8 @@ class FrontController extends Controller
                 'email'=>'required|email|unique:Subscribers,email'
             ]);
         Subscriber::create($data);
-        return back()->with('status','Done💚');        
+        return back()->with('footer_status','Done💚');        
     }
-//     public function getSubscriberCount()
-// {
-//     return Subscriber::count();
-// }
 
     public function reservation($id){
         $user = Auth::user();
