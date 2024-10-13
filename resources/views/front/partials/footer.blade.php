@@ -42,9 +42,9 @@
                         <h3>Newsletter </h3>
                         <div class="end-column">
                             <h4>Get latest updates and offers.</h4>
-                            @if (session('status'))
+                            @if (session('footer_status'))
                                 <div style="color: green">
-                                    {{ session('status') }}
+                                    {{ session('footer_status') }}
                                 </div>
                             @endif
                             <form action="{{ route('front.subscriber.store') }}" class="subscribe" method="post">
