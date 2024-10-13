@@ -5,9 +5,10 @@
                     Travel
                 </a></h1> --}}
             {{-- <!- if logo is image enable this --}}
-      <a class="navbar-brand mr-lg-5" href="#index.html">
-          <img src="{{asset('front-assets/images/Logo.png')}}" alt="Your logo" title="Your logo" style="height: 80px; width: 300px;" />
-      </a> 
+            <a class="navbar-brand mr-lg-5" href="{{ route('front.home') }}">
+                <img src="{{ asset('front-assets/images/Logo.png') }}" alt="Your logo" title="Your logo"
+                    style="height: 90px; width: auto; max-width: 250px;" />
+            </a>
             <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                 aria-label="Toggle navigation">
