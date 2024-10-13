@@ -24,6 +24,7 @@ Route::controller(FrontController::class)->name('front.')->group(function () {
    
     Route::post('subscribe/store', 'store')->name('subscriber.store');
 });
+
 require __DIR__ . '/auth.php';
 
 

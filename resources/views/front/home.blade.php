@@ -15,9 +15,36 @@
                             <h6 class="mb-3">Discover your next adventure</h6>
                         </div>
                     </div>
+                    <div class="container mt-4">
+                        <form action="{{ route('front.home') }}" method="GET" class="mb-4">
+                            <div class="input-group w-75 mx-auto">
+                                <input type="text" class="form-control form-control-lg" name="search"
+                                    placeholder="Search your dream destination" value="{{ request('search') }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-lg" type="submit">
+                                        <i class="fa fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="container">
+                        <div class="row">
+                            @if ($destinations->isEmpty())
+                                <p>No destinations found matching your search.</p>
+                            @else
+                                @foreach ($destinations as $destination)
+                                    <!-- Your existing code to display each destination -->
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
     <!-- /main-slider -->
     <!-- //banner-slider-->

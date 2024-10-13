@@ -13,12 +13,16 @@ use App\Models\Guide;
 
 class FrontController extends Controller
 {
-    public function index(){
-        $destinations = Destination::latest()->take(8)->get();
-        // $subscriberCount = Subscriber::count();
-        return view('front.home',compact('destinations'));
-        
-    }
+    public function index(Request $request)
+{
+    $search = $request->input('search');
+    $destinations = Destination::when($search, function ($query) use ($search) {
+        return $query->where('name', 'like', '%' . $search . '%');
+    })->latest()->take(8)->get();
+
+    return view('front.home', compact('destinations'));
+}
+
 
 //     public function getSubscriberCount(){
 
